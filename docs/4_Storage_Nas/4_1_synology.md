@@ -1,0 +1,3 @@
+# Synology
+
+Start typing here...
