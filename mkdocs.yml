@@ -2,78 +2,110 @@ site_name: 王大爷的学习笔记
 theme:
   name: 'material'
   language: zh
-repo_url: https://git.sinnen.top:8443/root/wwdocs
+  features:
+    - toc.integrate
+    - navigation.path
+    - navigation.tabs
+#    - navigation.tabs.sticky
+    - navigation.expand
+#    - navigation.sections
+#    - navigation.prune
+#    - navigation.top
+#    - navigation.footer
+
+  palette:
+    - primary: black
+
+#repo_url: https://github.com/shiyeah/docs
+#repo_name: shiyeah/docs
+
 
 nav:
   - 主页: index.md
   - Linux:
-    - Linux介绍: ./1_Linux/1_Linux.md
-    - Ubuntu:
-      - Ubuntu介绍: ./1_Linux/1_1_Ubuntu.md
-      - Ubuntu20.04 系统安装: ./1_Linux/ubuntu20.04_system_setup.md
-    - 踩过的坑: ./1_Linux/1_faq.md
+    - Ubuntu Server:
+      - Ubuntu20.04 安装后配置: ./1_Linux/ubuntu20.04_system_setup.md
+      - Ubuntu20.04 LNMP: ./1_Linux/ubuntu20.04_lnmp_php_mysql.md
+      - Ubuntu20.04 Gitlab: ./1_Linux/ubuntu20.04_gitlab.md
+      - Ubuntu20.04 Gitlab Nginx: ./1_Linux/ubuntu20.04_gitlab_nginx.md
+      - Ubuntu20.04 Gitlab ElasticSearch: ./1_Linux/ubuntu20.04_gitlab_elastic.md
+      - Ubuntu20.04 Gitlab License: ./1_Linux/ubuntu20.04_gitlab_license.md
+    - Linux踩过的坑: ./1_Linux/1_faq.md
   - MacOS:
-    - MacOS: ./2_MacOS/2_MacOS.md
     - 安装黑苹果:
-      - 黑苹果介绍: ./2_MacOS/2_1_hackintosh.md
       - 定制USB接口: ./2_MacOS/2_1_0_usb.md
       - OpenCore制作: ./2_MacOS/2_1_1_opencore_efi.md
       - 制作MacOS引导U盘: ./2_MacOS/2_1_2_macos_uboot.md
-    - 踩过的坑: ./2_MacOS/2_faq.md
+    - Typora搭配PICGO APP用七牛做图床: ./2_MacOS/MacOS_Typora_PICGO_qiniu.md
+    - MacOS踩过的坑: ./2_MacOS/2_faq.md
   - Windows:
-    - Windows介绍: ./3_Windows/3_Windows.md
-    - 踩过的坑: ./3_Windows/3_faq.md
+    - Windows踩过的坑: ./3_Windows/3_faq.md
   - 存储NAS:
-      - 存储系统: ./4_Storage_Nas/4_Storage_Nas.md
-      - Synology: ./4_Storage_Nas/4_1_synology.md
+      - Synology:
+        - Synology: ./4_Storage_Nas/4_1_synology.md
+        - Synology7: ./4_Storage_Nas/synology7.md
       - TrueNAS: ./4_Storage_Nas/4_2_truenas.md
-      - 踩过的坑: ./4_Storage_Nas/4_faq.md
+      - 存储NAS踩过的坑: ./4_Storage_Nas/4_faq.md
   - 软路由:
-      - 软路由介绍: ./5_Router/5_Router.md
       - Router OS: ./5_Router/5_1_ros.md
       - OpenWRT: ./5_Router/5_2_openwrt.md
-      - 踩过的坑: ./5_Router/5_faq.md
+      - 软路由踩过的坑: ./5_Router/5_faq.md
   - 网络及其他:
-      - 网络: ./6_Network/6_Network.md
       - 交换机: ./6_Network/6_1_switch.md
-      - 踩过的坑: ./6_Network/6_faq.md
+      - 网络踩过的坑: ./6_Network/6_faq.md
   - 嵌入式开发:
-      - 嵌入式介绍: ./7_Embedded/7_Embedded.md
       - STM32:
-          - STM32介绍: ./7_Embedded/7_1_stm32.md
           - STM32开发环境软件安装: ./7_Embedded/7_1_0_soft.md
           - 示例1-点灯: ./7_Embedded/7_1_1_gpio_led.md
-      - 踩过的坑: ./7_Embedded/7_faq.md
+      - STM32踩过的坑: ./7_Embedded/7_faq.md
   - 编程开发:
-      - 编程开发: ./8_Dev/8_Dev.md
-      - C语言: ./8_Dev/8_faq.md
-      - 踩过的坑: ./8_Dev/8_faq.md
+      - Git常用命令: ./8_Dev/git_users.md
+      - 编程开发踩过的坑: ./8_Dev/8_faq.md
+  - WEB:
+      - HEXO:
+        - hexo 安装: ./9_WEB/hexo_install_users.md
+        - hexo fluid主题: ./9_WEB/hexo_fluid_theme.md
+        - hexo Gitrunner: ./9_WEB/hexo_gitrunner.md
+      - WEB踩过的坑: ./9_WEB/9_faq.md
   - 摄影:
-      - 摄影: ./20_Picture/20_Picture.md
-      - 踩过的坑: ./20_Picture/20_faq.md
+      - 摄影踩过的坑: ./20_Picture/20_faq.md
   - 音频:
-      - 音频: ./21_Audio/21_Audio.md
-      - 踩过的坑: ./21_Audio/21_faq.md
+      - 音频踩过的坑: ./21_Audio/21_faq.md
   - 视频:
-      - 视频: ./22_Video/22_video.md
-      - 踩过的坑: ./22_Video/22_faq.md
+      - 视频踩过的坑: ./22_Video/22_faq.md
   - 游戏:
-      - 游戏: ./23_Game/23_Game.md
-      - CS服务器:
-        - HLDS架设: ./23_Game/23_1_hlds.md
-      - 踩过的坑: ./23_Game/23_faq.md
-  - 其他:
-      - 其他: ./30_Other/30_Other.md
-  - 关于: about.md
-  - Foo: foo.md
-  - Bar: bar.md
-
+      - 游戏:
+        - CS服务器:
+          - HLDS架设: ./23_Game/23_1_hlds.md
+          - Ubuntu STEAM安装: ./23_Game/ubuntu20.04_steam.md
+          - HLDS 插件安装: ./23_Game/steam_hlds_addons.md
+          - HLDS SQL插件安装: ./23_Game/steam_hlds_amxx_admin_sql.md
+      - 游戏踩过的坑: ./23_Game/23_faq.md
 
 markdown_extensions:
   - toc:
       toc_depth: 3
 
+extra_javascript:
+  - 'javascripts/busuanzi.pure.mini.js'
+  - 'javascripts/shortcuts.js'
 
 plugins:
   - search:
       lang: zh
+  - git-revision-date:
+      enabled_if_env: CI
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: date
+      fallback_to_build_date: true
+
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/mastodon
+      link: https://doc.sinnen.top:8443
+      name: Newren
+
+copyright: Copyright &copy; 2015 - 2024 Newren

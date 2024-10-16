@@ -1,0 +1,2920 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ubuntu20.04_steam/">
+      
+      
+        <link rel="next" href="../steam_hlds_amxx_admin_sql/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>CS1.6服务器插件安装 - 王大爷的学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cs16" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="王大爷的学习笔记" class="md-header__button md-logo" aria-label="王大爷的学习笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            王大爷的学习笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CS1.6服务器插件安装
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../1_Linux/ubuntu20.04_system_setup/" class="md-tabs__link">
+          
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../2_MacOS/2_1_0_usb/" class="md-tabs__link">
+          
+  
+  MacOS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../3_Windows/3_faq/" class="md-tabs__link">
+          
+  
+  Windows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../4_Storage_Nas/4_1_synology/" class="md-tabs__link">
+          
+  
+  存储NAS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../5_Router/5_1_ros/" class="md-tabs__link">
+          
+  
+  软路由
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../6_Network/6_1_switch/" class="md-tabs__link">
+          
+  
+  网络及其他
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../7_Embedded/7_1_0_soft/" class="md-tabs__link">
+          
+  
+  嵌入式开发
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../8_Dev/git_users/" class="md-tabs__link">
+          
+  
+  编程开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../9_WEB/hexo_install_users/" class="md-tabs__link">
+          
+  
+  WEB
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../20_Picture/20_faq/" class="md-tabs__link">
+          
+  
+  摄影
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../21_Audio/21_faq/" class="md-tabs__link">
+          
+  
+  音频
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../22_Video/22_faq/" class="md-tabs__link">
+          
+  
+  视频
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../23_1_hlds/" class="md-tabs__link">
+          
+  
+  游戏
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="王大爷的学习笔记" class="md-nav__button md-logo" aria-label="王大爷的学习笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    王大爷的学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ubuntu Server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ubuntu Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/ubuntu20.04_system_setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu20.04 安装后配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/ubuntu20.04_lnmp_php_mysql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu20.04 LNMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/ubuntu20.04_gitlab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu20.04 Gitlab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/ubuntu20.04_gitlab_nginx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu20.04 Gitlab Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/ubuntu20.04_gitlab_elastic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu20.04 Gitlab ElasticSearch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/ubuntu20.04_gitlab_license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu20.04 Gitlab License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Linux/1_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MacOS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            MacOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    安装黑苹果
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            安装黑苹果
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_MacOS/2_1_0_usb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    定制USB接口
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_MacOS/2_1_1_opencore_efi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenCore制作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_MacOS/2_1_2_macos_uboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    制作MacOS引导U盘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_MacOS/MacOS_Typora_PICGO_qiniu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Typora搭配PICGO APP用七牛做图床
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_MacOS/2_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MacOS踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Windows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_Windows/3_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    存储NAS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            存储NAS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Synology
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Synology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_Storage_Nas/4_1_synology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_Storage_Nas/synology7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synology7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_Storage_Nas/4_2_truenas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TrueNAS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_Storage_Nas/4_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    存储NAS踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    软路由
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            软路由
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5_Router/5_1_ros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Router OS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5_Router/5_2_openwrt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenWRT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5_Router/5_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    软路由踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    网络及其他
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            网络及其他
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6_Network/6_1_switch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    交换机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6_Network/6_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    嵌入式开发
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            嵌入式开发
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    STM32
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            STM32
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7_Embedded/7_1_0_soft/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STM32开发环境软件安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7_Embedded/7_1_1_gpio_led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    示例1-点灯
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7_Embedded/7_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STM32踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    编程开发
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            编程开发
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8_Dev/git_users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git常用命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8_Dev/8_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编程开发踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    WEB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            WEB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HEXO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            HEXO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../9_WEB/hexo_install_users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hexo 安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../9_WEB/hexo_fluid_theme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hexo fluid主题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../9_WEB/hexo_gitrunner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hexo Gitrunner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../9_WEB/9_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WEB踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    摄影
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            摄影
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_Picture/20_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摄影踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    音频
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            音频
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21_Audio/21_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    音频踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    视频
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            视频
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../22_Video/22_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    视频踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    游戏
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            游戏
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14_1" id="__nav_14_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    游戏
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14_1">
+            <span class="md-nav__icon md-icon"></span>
+            游戏
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14_1_1" id="__nav_14_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS服务器
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_14_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            CS服务器
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_1_hlds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HLDS架设
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu20.04_steam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu STEAM安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HLDS 插件安装
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    HLDS 插件安装
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 插件下载
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 插件下载">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要插件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义插件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 解压插件并复制主要插件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 解压插件并复制主要插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 解压插件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rehlds" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 REHLDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-metamod" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Metamod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-regameedll" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 REGAMEEDLL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-reunion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 REUNION
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-voicetranscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 VoiceTranscode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-amxmodx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Amxmodx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-reapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 REAPI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 复制其他插件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 复制其他插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-reauthcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Reauthcheck
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-rechecker" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Rechecker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-resemiclip" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Resemiclip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-whblocke" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Whblocke
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-yapb-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Yapb Bot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 编辑配置文件加载插件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 编辑配置文件加载插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-metamod" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 加载metamod插件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-metamod" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 通过metamod加载其他插件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 其他配置文件(不确定作用项尽量不要去修改)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-windowscstrikeservercfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 windows\cstrike\server.cfg
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steam_hlds_amxx_admin_sql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HLDS SQL插件安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    游戏踩过的坑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="cs16">CS1.6服务器插件安装</h1>
+<blockquote>
+<p><a href="https://szpzhy.com/2023/11/13/ubuntu20.04_steam/">原版HLDS CS1.6服务器安装</a> 安装的版本为8684（最新版9890发布了，暂未测试）</p>
+<p>将原版的steamcmd\steamapps\common\Half-Life文件夹复制出来</p>
+<p>在工作站上新建Hlds_pack文件夹</p>
+</blockquote>
+<h2 id="1">1. 插件下载</h2>
+<h3 id="_1">主要插件</h3>
+<ul>
+<li><a href="https://www.amxmodx.org/downloads-new.php?branch=master&amp;all=1">AMX Mod X</a> (   使用的版本[1.10.0.5467])</li>
+<li><a href="https://github.com/dreamstalker/rehlds/">ReHLDS</a> (   使用的版本[3.13.0.788])</li>
+<li><a href="https://github.com/s1lentq/ReGameDLL_CS">ReGameDLL</a> (   使用的版本[5.22.0.593])</li>
+<li><a href="https://cs.rin.ru/forum/viewtopic.php?f=29&amp;t=69235">Reunion</a> (   使用的版本[0.1.0.137])</li>
+<li><a href="https://github.com/theAsmodai/metamod-r">Metamod-r</a> (   使用的版本[1.3.0.131])</li>
+<li><a href="https://github.com/WPMGPRoSToTeMa/VoiceTranscoder">VoiceTranscoder</a> (   使用的版本[2017 RC5])</li>
+<li><a href="https://github.com/s1lentq/reapi">Reapi</a> (   使用的版本[5.22.0.254])</li>
+</ul>
+<h3 id="_2">自定义插件</h3>
+<p>可在此文件内开启或关闭 <strong>cstrike/addons/metamod/plugins.ini</strong>.</p>
+<ul>
+<li><a href="https://dev-cs.ru/resources/63/">ReAuthChecker</a> (  使用的版本[0.1.6])</li>
+<li><a href="https://dev-cs.ru/resources/72/">ReChecker</a> (  使用的版本[2.7])</li>
+<li><a href="https://dev-cs.ru/resources/71/">ReSemiclip</a> (  使用的版本[2.4.3])</li>
+<li><a href="https://dev-cs.ru/resources/76/">WHBlocker</a> (  使用的版本[1.5.697])</li>
+</ul>
+<blockquote>
+<p>下载地址:</p>
+</blockquote>
+<pre><code class="language-html">https://qn.newren.cn/hlds_files/yapb-4.3.734-windows.zip
+https://qn.newren.cn/hlds_files/whblocker_1_5_697.zip
+https://qn.newren.cn/hlds_files/VoiceTranscoder_2017RC5.zip
+https://qn.newren.cn/hlds_files/steamcmd.zip
+https://qn.newren.cn/hlds_files/reunion_0.1.0.92d.zip
+https://qn.newren.cn/hlds_files/resemiclip-2.4.3.zip
+https://qn.newren.cn/hlds_files/rehlds-bin-3.13.0.788.zip
+https://qn.newren.cn/hlds_files/regamedll-bin-5.22.0.593.zip
+https://qn.newren.cn/hlds_files/rechecker_2_7.zip
+https://qn.newren.cn/hlds_files/reauthcheck_0.1.6.rar
+https://qn.newren.cn/hlds_files/reapi-bin-5.22.0.254.zip
+https://qn.newren.cn/hlds_files/reaimdetector_0.2.2.rar
+https://qn.newren.cn/hlds_files/metamod-bin-1.3.0.131.zip
+https://qn.newren.cn/hlds_files/hackdetector_0.15.328.lite.zip
+https://qn.newren.cn/hlds_files/amxmodx-1.10.0-git5467-cstrike-windows.zip
+https://qn.newren.cn/hlds_files/amxmodx-1.10.0-git5467-cstrike-linux.tar.gz
+https://qn.newren.cn/hlds_files/amxmodx-1.10.0-git5467-base-windows.zip
+https://qn.newren.cn/hlds_files/amxmodx-1.10.0-git5467-base-linux.tar.gz
+</code></pre>
+<h2 id="2">2. 解压插件并复制主要插件</h2>
+<blockquote>
+<p>根据平台新建windows或linux文件夹,这里以windows演示</p>
+</blockquote>
+<h3 id="21">2.1 解压插件</h3>
+<blockquote>
+<p>解压为压缩包名,不要直接解压到当前文件夹,解压完如图</p>
+</blockquote>
+<p><img src="https://qn.newren.cn/markdown/image-20231125040249440.png" align="left" alt="image-20231125040249440" style="zoom: 67%;" /></p>
+<blockquote>
+<p>在windows文件夹内新建cstrike文件夹</p>
+</blockquote>
+<h3 id="22-rehlds">2.2 REHLDS</h3>
+<blockquote>
+<p>复制rehlds-bin-3.13.0.788\bin\win32内所有文件到windows文件夹内</p>
+</blockquote>
+<h3 id="23-metamod">2.3 Metamod</h3>
+<blockquote>
+<p>复制metamod-bin-1.3.0.131\addons文件夹到windows\cstrike文件夹内</p>
+</blockquote>
+<h3 id="24-regameedll">2.4 REGAMEEDLL</h3>
+<blockquote>
+<p>复制regamedll-bin-5.22.0.593\bin\win32\cstrike内所有文件到windows\cstrike文件夹内</p>
+</blockquote>
+<h3 id="25-reunion">2.5 REUNION</h3>
+<blockquote>
+<p>在windows\cstrike\addons里面新建reunion文件夹
+复制reunion_0.1.0.92d\bin\Windows\reunion_mm.dll到windows\cstrike\addons\reunion文件夹内
+复制reunion_0.1.0.92d\reunion.cfg文件到windows\cstrike文件夹内</p>
+</blockquote>
+<h3 id="26-voicetranscode">2.6 VoiceTranscode</h3>
+<blockquote>
+<p>复制VoiceTranscoder_2017RC5\addons\VoiceTranscoder文件夹到windows\cstrike\addons文件夹内</p>
+</blockquote>
+<h3 id="27-amxmodx">2.7 Amxmodx</h3>
+<blockquote>
+<p>复制amxmodx-1.10.0-git5467-base-windows\addons\amxmodx文件夹到windows\cstrike\addons文件夹内
+复制amxmodx-1.10.0-git5467-cstrike-windows\addons\amxmodx文件夹到windows\cstrike\addons文件夹，提示已存在，选择全部替换</p>
+</blockquote>
+<h3 id="28-reapi">2.8 REAPI</h3>
+<blockquote>
+<p>复制reapi-bin-5.22.0.254\addons\amxmodx文件夹到windows\cstrike\addons文件夹内</p>
+</blockquote>
+<h2 id="3">3. 复制其他插件</h2>
+<h3 id="31-reauthcheck">3.1 Reauthcheck</h3>
+<blockquote>
+<p>复制reauthcheck_0.1.6\windows\addons\reauthcheck文件夹到windows\cstrike\addons文件夹内</p>
+</blockquote>
+<h3 id="32-rechecker">3.2 Rechecker</h3>
+<blockquote>
+<p>复制rechecker_2_7\bin\addons\rechecker文件夹到windows\cstrike\addons文件夹内</p>
+</blockquote>
+<h3 id="33-resemiclip">3.3 Resemiclip</h3>
+<blockquote>
+<p>复制resemiclip-2.4.3\addons\resemiclip文件夹到windows\cstrike\addons文件夹内</p>
+</blockquote>
+<h3 id="34-whblocke">3.4 Whblocke</h3>
+<blockquote>
+<p>在windows\cstrike\addons里面新建whblocker文件夹
+复制whblocker_1_5_697\whblocker_1_5_697\bin\windows内所有文件到windows\cstrike\addons\whblocker文件夹内</p>
+</blockquote>
+<h3 id="35-yapb-bot">3.5 Yapb Bot</h3>
+<blockquote>
+<p>复制yapb-4.3.734-windows\addons\yapb文件夹到windows\cstrike\addons文件夹内</p>
+</blockquote>
+<h2 id="4">4. 编辑配置文件加载插件</h2>
+<blockquote>
+<p>从Half-Life\cstrike\里面复制liblist.gam文件到windows\cstrike文件夹内
+用记事本(推荐使用文本编辑工具,因为所有文本文件都要保存为UTF-8编码)打开并编辑（二选一）</p>
+</blockquote>
+<h3 id="41-metamod">4.1 加载metamod插件</h3>
+<pre><code class="language-bash">#Windows
+gamedll &quot;dlls\mp.dll&quot;
+gamedll &quot;addons\metamod\metamod.dll&quot;
+#Linux
+gamedll_linux &quot;dlls/cs.so&quot;
+gamedll_linux &quot;addons/metamod/metamod_i386.so&quot;
+</code></pre>
+<h3 id="42-metamod">4.2 通过metamod加载其他插件</h3>
+<blockquote>
+<p>在windows\cstrike\addons\metamod文件夹内新建plugins.ini文本文档,内容如下（二选一）</p>
+</blockquote>
+<pre><code class="language-bash">#windows
+win32 addons\amxmodx\dlls\amxmodx_mm.dll
+win32 addons\reunion\reunion_mm.dll
+win32 addons\reauthcheck\reauthcheck_mm.dll
+win32 addons\rechecker\rechecker_mm.dll
+win32 addons\VoiceTranscoder\VoiceTranscoder.dll
+win32 addons\whblocker\whblocker_mm.dll
+win32 addons\yapb\bin\yapb.dll
+
+#Linux
+linux addons/amxmodx/dlls/amxmodx_mm_i386.so
+linux addons/reunion/reunion_mm_i386.so
+linux addons/reauthcheck/reauthcheck_mm_i386.so
+linux addons/rechecker/rechecker_mm_i386.so
+linux addons/VoiceTranscoder/VoiceTranscoder.so
+linux addons/whblocker/whblocker_mm_i386.so
+linux addons/yapb/bin/yapb.so
+</code></pre>
+<h3 id="43">4.3 其他配置文件(不确定作用项尽量不要去修改)</h3>
+<blockquote>
+<p>在windows\cstrike文件夹内新建文本文档banned.cfg和listip.cfg
+windows\cstrike\banned.cfg 记录封禁的steamid
+windows\cstrike\listip.cfg 记录封禁的ip
+windows\cstrike\game.cfg
+windows\cstrike\addons\reauthcheck\reauthcheck.cfg
+windows\cstrike\addons\VoiceTranscoder\VoiceTranscoder.cfg
+windows\cstrike\addons\whblocker\config.ini
+windows\cstrike\addons\amxmodx\configs</p>
+</blockquote>
+<h3 id="44-windowscstrikeservercfg">4.4 windows\cstrike\server.cfg</h3>
+<blockquote>
+<p>服务器配置信息</p>
+</blockquote>
+<pre><code class="language-bash">hostname &quot; #新人电竞娱乐服&quot;
+
+rcon_password password123
+allow_spectators 0
+pausable 0
+
+mp_timelimit 60
+mp_roundtime 2
+mp_freezetime 5
+mp_c4timer 35
+mp_winlimit 13
+mp_fadetoblack 0
+mp_forcechasecam 0
+mp_forcecamera 0
+mp_friendlyfire 0
+mp_flashlight 1
+mp_limitteams 0
+mp_autokick 1
+mp_autokick_timeout 120
+mp_buytime &quot;0.25&quot;
+mp_startmoney &quot;800&quot;
+mp_maxmoney &quot;16000&quot;
+mp_autoteambalance &quot;1&quot;
+mp_logecho 0
+mp_logdetail 3
+mp_logfile 1
+mp_logmessages 1
+
+sv_maxspeed 320
+sv_logbans 1
+sv_cheats 0
+sys_ticrate 1000
+
+log on
+
+// load ban files
+exec listip.cfg
+exec banned.cfg
+</code></pre>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月16日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月16日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+		<span id="busuanzi_container_page_pv"><font size="2" color="grey">本文阅读量<span id="busuanzi_value_page_pv"></span>次</font></span>
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2015 - 2024 Newren
+    </div>
+  
+  
+  <span id="busuanzi_container_site_pv"><font size="2" color="grey">本站总访问量<span id="busuanzi_value_site_pv"></span>次</font></span>
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+    
+    
+    
+    <a href="https://doc.sinnen.top:8443" target="_blank" rel="noopener me" title="Newren" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.5 102.5 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5m-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "navigation.path", "navigation.tabs", "navigation.expand"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="../../javascripts/busuanzi.pure.mini.js"></script>
+      
+        <script src="../../javascripts/shortcuts.js"></script>
+      
+    
+  </body>
+</html>

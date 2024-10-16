@@ -1,3 +1,0 @@
-# 黑苹果
-
-Start typing here...

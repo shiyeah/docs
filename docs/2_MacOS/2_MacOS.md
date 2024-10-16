@@ -1,3 +1,0 @@
-# MacOS
-
-Start typing here...

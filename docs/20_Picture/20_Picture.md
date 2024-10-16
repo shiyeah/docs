@@ -1,3 +1,0 @@
-# 摄影
-
-Start typing here...

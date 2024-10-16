@@ -1,16 +1,3 @@
----
-title: ubuntu20.04-Mininal安装后系统配置
-categories:
-- [Linux,ubuntu]
-tags:
-- [ubuntu]
-- [LNMP]
-- [Gitlab]
-- [HLDS]
-date: 2023-11-12 18:00:00
-updated: 2023-11-12 18:00:00
----
-
 # Ubuntu20.04 Mininal安装后系统配置
 
 
@@ -28,12 +15,12 @@ updated: 2023-11-12 18:00:00
 
 - 用安装设置的用户名和密码连接服务器
 - 先更新源
-```bash
+```
 sudo apt update
 sudo apt -y upgrade
 ```
 
-```bash
+```
 sudo vim /etc/ssh/sshd_config
 	
 LoginGraceTime 2m
@@ -51,18 +38,15 @@ sudo systemctl restart sshd
 
 ## 关闭ufw防火墙并卸载
 
-  ```bash
-  sudo ufw disable
-  sudo apt-get -y remove ufw
   ```
-
-
+  sudo ufw disable && sudo apt-get -y remove ufw
+  ```
 
 ## 修改时区,并设置时间自动同步
 
 ### 修改时区
 
-```bash
+```
 sudo timedatectl set-timezone Asia/Shanghai
 date
 ```
@@ -71,7 +55,7 @@ date
 
 ### 设置时间自动同步
 
-```bash
+```
 sudo apt install chrony -y
 sudo vim /etc/chrony/chrony.conf
 
@@ -90,15 +74,15 @@ chronyc sources -v
 
 ## 安装常用软件
 
-```bash
+```
 sudo apt -y install net-tools zip unzip dstat nload screen htop tmux software-properties-common tree
 ```
 物理机可选
-```bash
+```
 sudo apt -y install rt-tests lm-sensors
 ```
 其他库
-```bash
+```
 sudo apt -y install build-essential gzip libsdl2-2.0-0 libsdl2-dev lib32stdc++6 asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 unzip zlib1g-dev libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync cmake libicu-dev
 ```
 
@@ -106,7 +90,7 @@ sudo apt -y install build-essential gzip libsdl2-2.0-0 libsdl2-dev lib32stdc++6 
 
 ## 开机自动运行rc.local
 
-```bash
+```
 sudo vim /lib/systemd/system/rc-local.service
 [Install]
 WantedBy=multi-user.target
@@ -127,7 +111,7 @@ sudo systemctl status rc-local.service
 
 ## 开机时在network那里卡好久
 
-```bash
+```
 sudo vim /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service
 
 [Service]
@@ -141,7 +125,7 @@ TimeoutStartSec=2sec
 
 ## 物理机更改CPU运行模式为性能模式
 
-```bash
+```
 sudo apt -y install cpufrequtils sysfsutils
 查看CPU运行模式
 cpufreq-info
@@ -196,7 +180,7 @@ sudo systemctl status sysfsutils
 
 ### 安装防火墙并创建黑名单
 
-```bash
+```
 sudo apt -y install iptables-persistent ipset
 sudo modprobe ipt_recent ip_list_tot=1000000
 sudo cat /sys/module/xt_recent/parameters/ip_list_tot
@@ -211,7 +195,7 @@ sudo ipset save blackip -f /etc/iptables/blackip
 
 ### 编辑防火墙规则
 
-```bash
+```
 sudo vim /etc/iptables/rules.v4
 
 *filter
@@ -264,7 +248,7 @@ COMMIT
 
 ### 导入防火墙规则
 
-```bash
+```
 sudo iptables-restore < /etc/iptables/rules.v4
 ```
 
@@ -272,7 +256,7 @@ sudo iptables-restore < /etc/iptables/rules.v4
 
 ### 查看防火墙规则
 
-```bash
+```
 sudo iptables -t filter -nL --line-number
 sudo iptables -t nat -nL --line-number
 sudo iptables -t raw -nL --line-number
@@ -282,7 +266,7 @@ sudo iptables -t raw -nL --line-number
 
 ### 添加到开机启动
 
-```bash
+```
 sudo vim /etc/rc.local
 
 #!/bin/bash

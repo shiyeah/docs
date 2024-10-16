@@ -1,3 +1,0 @@
-# Ubuntu
-
-Start typing here...
