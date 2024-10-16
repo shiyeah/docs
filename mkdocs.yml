@@ -8,9 +8,9 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.expand
-#    - navigation.sections
-#    - navigation.prune
-#    - navigation.top
+    - navigation.sections
+    - navigation.prune
+    - navigation.top
 #    - navigation.footer
 
   palette:
