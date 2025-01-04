@@ -12,6 +12,7 @@ theme:
     - navigation.prune
     - navigation.top
 #    - navigation.footer
+    - content.code.copy
 
   palette:
     - primary: black
